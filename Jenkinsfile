@@ -1,5 +1,8 @@
 pipeline {
-    agent { "inbound-agent-slave" }
+    agent {
+        label 'inbound-agent-slave'
+    }
+
     stages {
         stage('Run main.py') {
             steps {
