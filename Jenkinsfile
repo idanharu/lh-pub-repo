@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent {inbound-agent-slave}
     stages {
         stage('Run main.py') {
             steps {
