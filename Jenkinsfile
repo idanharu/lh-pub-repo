@@ -7,7 +7,8 @@ pipeline {
         stage('Run main.py') {
             steps {
                 script {
-                        sh "python3 main.py"
+                        sh 'pip install -r req.txt'
+                        sh 'python3 main.py'
                 }
             }
         }
