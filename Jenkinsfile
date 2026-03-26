@@ -7,7 +7,7 @@ pipeline {
         stage('Run main.py') {
             steps {
                 script {
-                        sh 'docker run -p 8000:8000 nginx'
+                        sh 'docker run -p 8000:80 nginx'
                 }
             }
         }
