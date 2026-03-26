@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'inbound-agent-slave'
+        label 'inbound-agent-dind-slave'
     }
 
     stages {
