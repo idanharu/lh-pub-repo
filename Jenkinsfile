@@ -1,7 +1,8 @@
 pipeline {
-    agent any
+    agent {
+        label 'inbound-agent-slave'
+    }
     environment {
-        // Automatically creates DOCKER_CREDS_USR and DOCKER_CREDS_PSW
         DOCKER_CREDS = credentials('dockerhub-token')
     }
     stages {
