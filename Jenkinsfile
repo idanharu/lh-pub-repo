@@ -1,14 +1,13 @@
 pipeline {
-    agent {
-        label 'inbound-agent-dind-slave'
+    agent any
+    environment {
+        // Automatically creates DOCKER_CREDS_USR and DOCKER_CREDS_PSW
+        DOCKER_CREDS = credentials('dockerhub-token')
     }
-
     stages {
-        stage('Run main.py') {
+        stage('Login') {
             steps {
-                script {
-                        sh 'docker run -p 8000:80 nginx'
-                }
+                sh "echo ${DOCKER_CREDS_PSW} | docker login -u ${DOCKER_CREDS_USR} --password-stdin"
             }
         }
     }
